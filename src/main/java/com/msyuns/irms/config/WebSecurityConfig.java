@@ -27,9 +27,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();*/
 
 
-        http
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/bootstrap/**", "/dist/**", "/plugins/**").permitAll()
+                .antMatchers("/").hasAnyRole("ADMIN", "USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -56,11 +56,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll();*/
     }
 
-   /* @Override
+    @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/bootstrap/**", "/dist/**", "/plugins/**");
         //可以仿照上面一句忽略静态资源
-    }*/
+    }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
