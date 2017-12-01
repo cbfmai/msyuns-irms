@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by Sanjay on 8/15/2016.
+ *
  */
-
 @Controller
 public class DashboardController {
 
